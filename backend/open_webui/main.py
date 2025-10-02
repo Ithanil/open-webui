@@ -1939,7 +1939,7 @@ if len(app.state.config.TOOL_SERVER_CONNECTIONS) > 0:
 try:
     if REDIS_URL:
         redis_session_store = RedisStore(
-            url=REDIS_URL,
+            client=app.state.redis,
             prefix=(f"{REDIS_KEY_PREFIX}:session:" if REDIS_KEY_PREFIX else "session:"),
         )
 
